@@ -1,0 +1,37 @@
+body{
+    background-color: #212121;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 2fr;
+    margin-top: 25px;
+    grid-template-columns: 300px 1fr;
+}
+
+.header{
+    display: grid;
+    grid-area: header;
+    background-color: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px black;
+    background-color: #212121;
+    color: white;
+    position: sticky;
+}
+
+.hero-image{
+   max-height: 100%;
+   width: 100%; 
+   border: 2px solid black; 
+   
+}
+
+.hero-attribute{
+    height: 2em;
+    width: 2em;
+    margin-bottom: -25px;
+}
+
+

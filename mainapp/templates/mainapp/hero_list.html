@@ -1,0 +1,25 @@
+{% load static %}
+{% block content %}
+<!doctype html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+    <script type="text/javascript" src="{% static 'mainapp/script.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <head>
+        <title>Dota 2</title>
+    </head>
+    <body>            
+            <div class="container">
+                    {% for hero in heroes %}
+                        <a href="heroes/{{ hero.slug }}" class="hrefs">
+                            <div style="background-image: url('{{ hero.hero_thumbnail.url }}');" class="background">
+                                <div class="name">
+                                    {{ hero.hero_name }}
+                                </div>
+                            </div>
+                        </a>                
+                    {% endfor %}           
+            </div>
+    </body> 
+{% endblock content %}
+</html>
