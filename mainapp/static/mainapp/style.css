@@ -71,3 +71,18 @@ body{
 	z-index: 100;
 }
 
+.header{
+    display: flex;
+    background-color: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px black;
+    background-color: #212121;
+    color: white;
+	position: sticky;
+	justify-content: space-between;
+}
+
+.header > img {
+	position: 
+}
+

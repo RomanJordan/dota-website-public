@@ -8,7 +8,14 @@
     <head>
         <title>Dota 2</title>
     </head>
-    <body>            
+    <body>
+            <header class="header">
+                    <img src="{% static "assets/logo_icon.png" %}" alt="" class="logo"></img>
+                    <div class="banner">Dota 2 counters</div>
+                    <div class="search">
+                        <input type="text" placeholder="Search for a hero">
+                    </div>
+            </header>            
             <div class="container">
                     {% for hero in heroes %}
                         <a href="heroes/{{ hero.slug }}" class="hrefs">

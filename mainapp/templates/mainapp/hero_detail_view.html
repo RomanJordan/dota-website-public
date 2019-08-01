@@ -4,23 +4,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'mainapp/detailstyle.css' %}">
     <script type="text/javascript" src="{% static 'mainapp/script.js' %}"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <head>
         <title>Dota 2</title>
     </head>
     <body>
         <header class="header">
-            <img src="{{ hero.hero_attribute_image.url }}" alt="" class="hero-attribute"></img>
+            <img src="{% static "assets/logo_icon.png" %}" alt="" class="hero-attribute"></img>
             <div class="hero-name">{{ hero.hero_name }} </div>
+            <div class="search">
+                    <input type="text" placeholder="Search for a hero">
+            </div>
         </header>
         <div class="container">
             <div class="hero-header"> 
                 <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image">
-            </div>
-            <div class="">
-
-            </div>           
+            </div>              
         </div>
+            <h1>
+                {% for counter in counters %}
+                    Name: {{ hero.hero_counters.all|join:", " }}
+                {% endfor %}
+                <p>{{ hero.hero_counters.all }}</p>
+            </h1>
+            
+        
     </body> 
 {% endblock content %}
 </html>

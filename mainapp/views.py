@@ -15,3 +15,8 @@ class HeroDetailView(DetailView):
     model = Hero
     query_pk_and_slug = False
     template_name = 'mainapp/hero_detail_view.html'
+
+    def get_counters(self, **kwargs):
+        context = super(HeroDetailView, self).get_context_data(**kwargs)
+        context['counters'] = hero.hero_counters.objects.all()
+        return context
