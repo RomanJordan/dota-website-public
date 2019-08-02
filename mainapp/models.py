@@ -32,6 +32,8 @@ class Hero(models.Model):
     hero_base_movement_speed = models.IntegerField(default=25)
     hero_attribute_image = models.ImageField(default='Strength_attribute_symbol.png', upload_to='hero_thumbnails')
     hero_counters = models.ManyToManyField("self", blank=True, symmetrical=False)
+    hero_advantages = models.ManyToManyField("self", blank=True, symmetrical=False, related_name='advantages')
+    
     slug = models.SlugField(max_length=30, null=True, blank=True)
     
 

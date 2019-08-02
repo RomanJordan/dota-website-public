@@ -17,14 +17,25 @@
         </header>
         <div class="container">
             <div class="hero-header"> 
-                <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image">
+                <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image"></img>
+            </div>
+            <div class="counters">
+                <div class="counter head">
+                    <strong style="color: wheat;">Counters:</strong>
+                </div>
+                {% for counter in hero.hero_counters.all %}
+                <a href="heroes/{{ counter.hero.slug }}" class="hrefs">
+                    <div style="background-image: url('{{ counter.hero_thumbnail.url }}');" class="background">
+                        <div class="name">
+                            {{ counter.hero_name }}
+                        </div>
+                    </div>
+                </a>
+                 
+                {% endfor %}
             </div>              
         </div>
-            <h1 style="color: red;">Hero is weak against:
-                {% for counter in hero.hero_counters.all %}
-                 <img src="{{ counter.hero_thumbnail.url }}" alt="">
-                {% endfor %}
-            </h1>
+           
             
         
     </body> 

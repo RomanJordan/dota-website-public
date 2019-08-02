@@ -34,4 +34,30 @@ body{
     margin-bottom: -25px;
 }
 
+.background{
+	display: inline-block;
+	width: 120px;
+	height: 64px;
+	background-size: cover;
+	border: 2px solid black;
+	
+}
+
+.name{
+	position: absolute;
+	color: white;
+	font-size: 10px;
+	text-shadow: 0px 0px 2px black;
+	z-index: 100;
+}
+
+.hrefs{
+	width: 120px;
+	height: 64px;
+	margin: 4px 4px 4px 4px;
+}
+
+.hrefs:hover{
+	opacity: 0.5;
+}
 
