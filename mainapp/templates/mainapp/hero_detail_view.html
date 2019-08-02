@@ -13,18 +13,17 @@
             <div class="hero-name">{{ hero.hero_name }} </div>
             <div class="search">
                     <input type="text" placeholder="Search for a hero">
-            </div>
+        </div>
         </header>
         <div class="container">
             <div class="hero-header"> 
                 <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image">
             </div>              
         </div>
-            <h1>
-                {% for counter in counters %}
-                    Name: {{ hero.hero_counters.all|join:", " }}
+            <h1 style="color: red;">Hero is weak against:
+                {% for counter in hero.hero_counters.all %}
+                 <img src="{{ counter.hero_thumbnail.url }}" alt="">
                 {% endfor %}
-                <p>{{ hero.hero_counters.all }}</p>
             </h1>
             
         
