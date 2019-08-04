@@ -6,12 +6,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'mainapp/detailstyle.css' %}">
     <script type="text/javascript" src="{% static 'mainapp/script.js' %}"></script>
     <head>
-        <title>Dota 2</title>
+        <title>{{ hero.hero_name }} Counters, stats, talents, starting items</title>
     </head>
     <body>
         <header class="navbar navbar-default navbar-static-top justify-content-between">
                    
-            <div class="banner">Dota 2 counters</div>
+            <a href="{% url 'home' %}">
+                <div class="banner">Dota 2 counters</div>
+            </a>
             <div class="search">
                 <input type="text" placeholder="Search for a hero">
             </div>
@@ -28,14 +30,13 @@
                     <strong style="color: wheat;">Countered by:</strong>
                 </div>
                 {% for counter in hero.hero_counters.all %}
-                <a href="heroes/{{ counter.hero.slug }}" class="hrefs">
+                <a href="{% url 'hero-details' counter.slug %}" class="hrefs">
                     <div style="background-image: url('{{ counter.hero_thumbnail.url }}');" class="background">
                         <div class="name">
                             {{ counter.hero_name }}
                         </div>
                     </div>
-                </a>
-                 
+                </a>                
                 {% endfor %}
             </div>
             
@@ -44,7 +45,7 @@
                     <strong style="color: wheat;">Counters:</strong>
                 </div>
                 {% for advantage in hero.hero_advantages.all %}
-                <a href="heroes/{{ counter.hero.slug }}" class="hrefs">
+                <a href="{% url 'hero-details' advantage.slug %}" class="hrefs">
                     <div style="background-image: url('{{ advantage.hero_thumbnail.url }}');" class="background">
                         <div class="name">
                             {{ advantage.hero_name }}
@@ -55,10 +56,10 @@
                 {% endfor %}
             </div>
             <div class="table-holder">
-                <table class="talent-table" style="background-color: wheat;"> 
+                <table class="talent-table" style="background-color: #7f7979;"> 
                     <tbody class="tbody">
                         <tr>
-                            <th colspan="3" style="background-color: #0C2A5A; text-align:center;">Talents</th>
+                            <th colspan="3" style="background-color: #c1bdb3; text-align:center;">Talents</th>
                         </tr>
                         <tr>
                             <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_left_lvl25 }}</td>
@@ -83,7 +84,17 @@
                     </tbody>
                     <caption>Dota 2 hero talent table</caption>
                 </table>
-            </div>               
+            </div>
+            <div class="recommended-items">
+                <h3 style="color: white">Recommended items</h3>
+                <div class="item-holder">
+                    {% for item in hero.hero_recommended_items.all %}
+                        <img src="{{ item.item_image.url  }}" alt="">
+                    {% endfor %}
+                </div>
+            </div>
+            
+
         </div>
            
             

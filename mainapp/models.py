@@ -6,6 +6,32 @@ import itertools
 from multiselectfield import MultiSelectField
 
 
+class Item(models.Model):
+    item_name = models.CharField(default='default', max_length=50, blank=False)
+    item_stat1 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat2 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat3 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat4 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat5 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat6 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat7 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat8 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat9 = models.CharField(default='default', max_length=50, blank=True)
+    item_stat10 = models.CharField(default='default', max_length=50, blank=True)
+    item_description = models.CharField(default='default', max_length=50, blank=False)
+    item_cost = models.IntegerField(default = 0, blank=False)
+    item_image = models.ImageField(default='Juggernaut_icon.png', upload_to='item_thumbnails')
+
+
+
+
+    def __str__(self):
+        return self.item_name
+
+    class Meta:
+        ordering = ['item_name']
+
+
 class Hero(models.Model):
     STRENGTH = 'STR'
     INTELLIGENCE = 'INT'
@@ -48,7 +74,7 @@ class Hero(models.Model):
     hero_roles = MultiSelectField(max_choices=6, choices=HERO_ROLES, blank=True)
     hero_counters = models.ManyToManyField("self", blank=True, symmetrical=False)
     hero_advantages = models.ManyToManyField("self", blank=True, symmetrical=False, related_name='advantages')
-    
+    hero_recommended_items = models.ManyToManyField(Item, blank=True, symmetrical=False)
 
     hero_talent_left_lvl10 = models.CharField(default='default talent description', max_length=100)
     hero_talent_right_lvl10 = models.CharField(default='default talent description', max_length=100)
@@ -90,3 +116,6 @@ class Hero(models.Model):
 
     class Meta:
         ordering = ['hero_name']
+
+
+
