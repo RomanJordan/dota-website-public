@@ -7,7 +7,7 @@ body{
     display: grid;
     grid-template-rows: 2fr;
     margin-top: 25px;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .header{
@@ -23,7 +23,9 @@ body{
 
 .hero-image{
    height: 100%;
-   width: 100%; 
+   width: 100%;
+   max-height: 170.5px;
+   max-width: 340px; 
    border: 2px solid black; 
    
 }
@@ -61,3 +63,22 @@ body{
 	opacity: 0.5;
 }
 
+.stats{
+    background-color: white;
+}
+
+.navbar{
+	box-shadow: 1px 1px 1px black;
+}
+
+.banner{
+	color: white;
+}
+
+.counters{
+    align-items: center;
+}
+
+.tbody{
+    font-size: 12px;
+}

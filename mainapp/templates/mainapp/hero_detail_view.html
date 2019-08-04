@@ -1,6 +1,7 @@
 {% load static %}
 {% block content %}
 <!doctype html>
+    <html lang="en">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'mainapp/detailstyle.css' %}">
     <script type="text/javascript" src="{% static 'mainapp/script.js' %}"></script>
@@ -8,20 +9,23 @@
         <title>Dota 2</title>
     </head>
     <body>
-        <header class="header">
-            <img src="{% static "assets/logo_icon.png" %}" alt="" class="hero-attribute"></img>
-            <div class="hero-name">{{ hero.hero_name }} </div>
+        <header class="navbar navbar-default navbar-static-top justify-content-between">
+                   
+            <div class="banner">Dota 2 counters</div>
             <div class="search">
-                    <input type="text" placeholder="Search for a hero">
-        </div>
+                <input type="text" placeholder="Search for a hero">
+            </div>
+    </header>            
         </header>
         <div class="container">
             <div class="hero-header"> 
                 <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image"></img>
+                <strong style="color: white; font-size: 26px;">{{ hero.hero_name }}</strong>
+                <h2 style="color: white;">{{ hero.hero_roles }}</h2>
             </div>
             <div class="counters">
                 <div class="counter head">
-                    <strong style="color: wheat;">Counters:</strong>
+                    <strong style="color: wheat;">Countered by:</strong>
                 </div>
                 {% for counter in hero.hero_counters.all %}
                 <a href="heroes/{{ counter.hero.slug }}" class="hrefs">
@@ -33,7 +37,53 @@
                 </a>
                  
                 {% endfor %}
-            </div>              
+            </div>
+            
+            <div class="advantages">
+                <div class="advantage head">
+                    <strong style="color: wheat;">Counters:</strong>
+                </div>
+                {% for advantage in hero.hero_advantages.all %}
+                <a href="heroes/{{ counter.hero.slug }}" class="hrefs">
+                    <div style="background-image: url('{{ advantage.hero_thumbnail.url }}');" class="background">
+                        <div class="name">
+                            {{ advantage.hero_name }}
+                        </div>
+                    </div>
+                </a>
+                 
+                {% endfor %}
+            </div>
+            <div class="table-holder">
+                <table class="talent-table" style="background-color: wheat;"> 
+                    <tbody class="tbody">
+                        <tr>
+                            <th colspan="3" style="background-color: #0C2A5A; text-align:center;">Talents</th>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_left_lvl25 }}</td>
+                            <th style="border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;border-bottom-width: 1px;border-bottom-style: solid;">25</th>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_right_lvl25 }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_left_lvl20 }}</td>
+                            <th style="border-bottom-width: 1px;border-bottom-style: solid;border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;">20</th>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_right_lvl20 }}</td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_left_lvl15 }}</td>
+                            <th style="border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;border-bottom-width: 1px;border-bottom-style: solid;">15</th>
+                            <td style="border-bottom-width: 1px;border-bottom-style: solid;">{{ hero.hero_talent_right_lvl15 }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ hero.hero_talent_left_lvl10 }}</td>
+                            <th style="border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;">10</th>
+                            <td>{{ hero.hero_talent_right_lvl10 }}</td>
+                        </tr>
+                    </tbody>
+                    <caption>Dota 2 hero talent table</caption>
+                </table>
+            </div>               
         </div>
            
             
