@@ -8,6 +8,7 @@ body{
     grid-template-rows: 2fr;
     margin-top: 25px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
 }
 
 .header{
@@ -56,7 +57,7 @@ body{
 .hrefs{
 	width: 120px;
 	height: 64px;
-	margin: 4px 4px 4px 4px;
+	
 }
 
 .hrefs:hover{
@@ -81,4 +82,8 @@ body{
 
 .tbody{
     font-size: 12px;
+}
+
+.h2, h2{
+    font-size: 16px;
 }

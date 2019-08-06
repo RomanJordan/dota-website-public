@@ -21,13 +21,14 @@
         </header>
         <div class="container">
             <div class="hero-header"> 
+                <h1 style="color: white; font-size: 26px;">{{ hero.hero_name }}</h1>
                 <img src="{{  hero.hero_thumbnail.url }}" alt="" class="hero-image"></img>
-                <strong style="color: white; font-size: 26px;">{{ hero.hero_name }}</strong>
+                
                 <h2 style="color: white;">{{ hero.hero_roles }}</h2>
             </div>
             <div class="counters">
                 <div class="counter head">
-                    <strong style="color: wheat;">Countered by:</strong>
+                    <h2 style="color: wheat;"> {{ hero.hero_name }} is countered by:</h2>
                 </div>
                 {% for counter in hero.hero_counters.all %}
                 <a href="{% url 'hero-details' counter.slug %}" class="hrefs">
@@ -42,7 +43,7 @@
             
             <div class="advantages">
                 <div class="advantage head">
-                    <strong style="color: wheat;">Counters:</strong>
+                    <h2 style="color: wheat; ">{{ hero.hero_name }} counters:</h2>
                 </div>
                 {% for advantage in hero.hero_advantages.all %}
                 <a href="{% url 'hero-details' advantage.slug %}" class="hrefs">
@@ -97,7 +98,7 @@
 
         </div>
            
-            
+        <img src="{% static "mainapp/assets/logo_icon.png" %}" alt="">
         
     </body> 
 {% endblock content %}

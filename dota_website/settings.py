@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainapp.apps.MainappConfig'
+    'mainapp.apps.MainappConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,7 @@ DATABASES = {
 }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -132,3 +134,23 @@ MEDIA_URL = '/content/'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+AWS_ACCESS_KEY_ID = 'AKIA4BL7QHQ2TXTPPEHE'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'dota2bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % 'dota2bucket'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+AWS_QUERYSTRING_AUTH = False
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'mainapp/static'),
+]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

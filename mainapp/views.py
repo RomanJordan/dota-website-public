@@ -16,5 +16,5 @@ class HeroDetailView(DetailView):
     query_pk_and_slug = False
     template_name = 'mainapp/hero_detail_view.html'
     
+
     
-        
