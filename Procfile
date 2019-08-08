@@ -1,1 +1,2 @@
-web: gunicorn django_project.wsgi
+web: gunicorn dota_website.wsgi
+web: python manage.py runserver
