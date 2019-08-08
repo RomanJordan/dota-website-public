@@ -1,1 +1,1 @@
-web: gunicorn dota_website.wsgi
+web: gunicorn django_project.wsgi
