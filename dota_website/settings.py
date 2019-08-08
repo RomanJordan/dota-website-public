@@ -25,7 +25,7 @@ SECRET_KEY = '%an_&%c_stu(8)#4mz=!kaahlb-s-4an8%k#j1=-m=v8*o$w5!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dota2-counters.herokuapp.com']
 
 
 # Application definition
