@@ -13,7 +13,7 @@ body{
 	grid-template-rows: 1fr 1fr;
 	position: relative;
 	z-index: 2;
-	
+	grid-gap: 6px;
 }
 
 .grid-item{
